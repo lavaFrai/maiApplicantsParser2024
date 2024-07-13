@@ -282,8 +282,8 @@ object ApplicantParser {
 
                     filial = filial,
                     level = level,
-                    profile = form,
-                    form = budget,
+                    direction = direction,
+                    form = form,
                     budgetType = budget,
 
                     lastUpdate = "reserved",
