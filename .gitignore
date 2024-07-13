@@ -42,3 +42,5 @@ bin/
 .DS_Store
 
 applicants.json
+/applications.json
+/directions.json
