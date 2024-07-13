@@ -17,11 +17,13 @@ class Application(
 
     val filial: String,
     val level: String,
-    val profile: String,
+    val direction: String,
     val form: String,
     val budgetType: String,
     val lastUpdate: String,
     val fullName: String,
 ) {
     @Transient val hash = id.hashCode()
+    @Transient val directionQuotaHash = "$filial:$level:$direction:$form:$quota".hashCode()
+    @Transient val directionHash = "$filial:$level:$form:$fullName".hashCode()
 }

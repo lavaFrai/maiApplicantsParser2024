@@ -1,6 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.9.23"
-    id("maven-publish")
+    kotlin("jvm") version "2.0.0"
     kotlin("plugin.serialization") version "2.0.0"
 }
 
@@ -13,6 +12,8 @@ repositories {
 
 dependencies {
     implementation("io.ktor:ktor-client-okhttp-jvm:2.3.12")
+    implementation("io.ktor:ktor-client-logging:2.3.12")
+
     testImplementation(kotlin("test"))
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")

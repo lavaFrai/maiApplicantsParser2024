@@ -10,4 +10,10 @@ class Direction(
     val name: String,
     val code: String = name.split(" ").first(),
     val quotas: Map<Quota, Int>,
-)
+) {
+    val hash = "$filial:$level:$form:$name".hashCode()
+
+    fun getQuota(quota: Quota): Int {
+        return this.quotas[quota] ?: 0
+    }
+}

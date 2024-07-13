@@ -2,6 +2,7 @@ package ru.lavafrai.mai.applicantsparser
 
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
+import io.ktor.client.plugins.logging.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import org.jsoup.Jsoup
@@ -12,6 +13,10 @@ object ApplicantParser {
     private val client = HttpClient(CIO) {
         engine {
             requestTimeout = 30_000
+        }
+
+        install(Logging) {
+            level = LogLevel.NONE
         }
     }
 
@@ -277,8 +282,8 @@ object ApplicantParser {
 
                     filial = filial,
                     level = level,
-                    profile = form,
-                    form = budget,
+                    direction = direction,
+                    form = form,
                     budgetType = budget,
 
                     lastUpdate = "reserved",
