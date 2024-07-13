@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "1.9.23"
+    id("maven-publish")
     kotlin("plugin.serialization") version "2.0.0"
 }
 
@@ -28,4 +29,15 @@ tasks.test {
 }
 kotlin {
     jvmToolchain(17)
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("Maven") {
+            groupId = group as String
+            artifactId = "api"
+            version = version as String
+            from(components["kotlin"])
+        }
+    }
 }
