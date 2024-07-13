@@ -20,7 +20,7 @@ dependencies {
 
     implementation("io.ktor:ktor-client-core:2.3.12")
     implementation("io.ktor:ktor-client-cio:2.3.12")
-    implementation("org.jsoup:jsoup:1.17.2")
+    implementation("org.jsoup:jsoup:1.18.1")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.1")
     implementation("org.slf4j:slf4j-simple:1.7.21")
 }
@@ -30,4 +30,15 @@ tasks.test {
 }
 kotlin {
     jvmToolchain(17)
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("Maven") {
+            groupId = group as String
+            artifactId = "api"
+            version = version as String
+            from(components["kotlin"])
+        }
+    }
 }
